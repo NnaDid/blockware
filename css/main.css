@@ -7,6 +7,8 @@ body{
     padding: 0;
     font-family: Space Grotesk; 
     height: 100vh;
+    transform: scaleY(.95);
+    font-family: 'Space Grotesk';
 }
 
 
@@ -517,6 +519,16 @@ nav{
 .intro{
     text-align: center;
 }
+
+.intro h2{
+    font-family: 'Space Grotesk';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 40px;
+    line-height: 51px; 
+    color: #000000;
+}
+
 .services__body{
     margin: 50px;
 }
@@ -553,6 +565,10 @@ nav{
     font-weight: 600;
 }
 
+.left a:hover{
+    background: #dea30cc7; 
+}
+
 .service__row img{
     height: 95%;
     width:95%;
@@ -567,6 +583,7 @@ nav{
 
     color: #000000;
 }
+
 
 
 
