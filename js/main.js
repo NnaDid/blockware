@@ -15,11 +15,14 @@ for (let item of footer__question) {
 
 const loginBtn = document.getElementById('login')
 
+// creat ud auth client 
 const UAuth = uDauth({
     clientID: "95d27641-7395-413f-9de2-07b5136197c9",
     redirectUri: `${window.location.href}`,
     scope: "openid wallet email profile:optional social:optional"
 })
+
+console.log(window.location.href)
 
 let uDuser;
 
