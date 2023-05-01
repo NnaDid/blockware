@@ -30,7 +30,7 @@ try {
     UAuth.user()
         .then((user) => {
             uDuser = user
-            console.log(user)
+            loginBtn.innerText = uDuser ? uDuser.sub : 'Connect Wallet'
         })
         .catch((e) => {
             console.log(e)
