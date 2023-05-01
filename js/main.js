@@ -13,35 +13,36 @@ for (let item of footer__question) {
 }
 
 
+const loginBtn = document.getElementById('login')
 
+const UAuth = uDauth({
+    clientID: "95d27641-7395-413f-9de2-07b5136197c9",
+    redirectUri: `${window.location.href}`,
+    scope: "openid wallet email profile:optional social:optional"
+})
+
+let uDuser;
+
+// check if there's a user 
+try {
+    UAuth.user()
+        .then((user) => {
+            uDuser = user
+            console.log(user)
+        })
+        .catch((e) => {
+            console.log(e)
+        })
+} catch (err) {
+    console.log(err)
+}
+
+// change login text if there's a user 
+loginBtn.innerText = uDuser ? uDuser.sub : 'Login'
 
 const handleLogin = () => {
-    const UAuth = uDauth({
-        clientID: "37a2f8494930007072047040174013hk20",
-        redirectUri: `${location.origin}`,
-        scope: "openid wallet email profile:optional social:optional"
-    })
-
-    let uDuser;
-
-    try {
-        UAuth.user()
-            .then((user) => {
-                uDuser = user
-                console.log(user)
-            })
-            .catch((e) => {
-                console.log(e)
-            })
-    } catch (err) {
-        console.log(err)
-    }
-
-    console.log(uDuser)
-
     if (uDuser) logoutUD(UAuth)
     else loginUD(UAuth)
-
 }
 
 const loginUD = async (UAuth) => {
