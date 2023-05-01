@@ -22,7 +22,6 @@ const UAuth = uDauth({
     scope: "openid wallet email profile:optional social:optional"
 })
 
-console.log(window.location.href)
 
 let uDuser;
 
@@ -41,7 +40,7 @@ try {
 }
 
 // change login text if there's a user 
-loginBtn.innerText = uDuser ? uDuser.sub : 'Login'
+loginBtn.innerText = uDuser ? uDuser.sub : 'Connect Wallet'
 
 const handleLogin = () => {
     if (uDuser) logoutUD(UAuth)
